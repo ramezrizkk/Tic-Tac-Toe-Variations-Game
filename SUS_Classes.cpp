@@ -165,6 +165,41 @@ int SUS_Board::get_score(char symbol)
     }
 }
 
+vector<pair<int, int>> SUS_Board::get_valid_moves() {
+    vector<pair<int, int>> moves;
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            if (board[i][j] == blank_symbol)
+                moves.push_back({ i, j });
+    return moves;
+}
+
+// Score a potential move
+int SUS_Board::get_move_score(int x, int y, char symbol) {
+    int score = 0;
+    char opponent = (symbol == 'S') ? 'U' : 'S';
+
+    // Temporarily place the piece
+    char original = board[x][y];
+    board[x][y] = symbol;
+
+    // Check if we create S-U-S
+    // Check row
+    if (board[x][0] == 'S' && board[x][1] == 'U' && board[x][2] == 'S') score += 100;
+    // Check column
+    if (board[0][y] == 'S' && board[1][y] == 'U' && board[2][y] == 'S') score += 100;
+    // Check diagonals
+    if (x == y && board[0][0] == 'S' && board[1][1] == 'U' && board[2][2] == 'S') score += 100;
+    if (x + y == 2 && board[0][2] == 'S' && board[1][1] == 'U' && board[2][0] == 'S') score += 100;
+
+    // Restore board
+    board[x][y] = original;
+
+    // Prefer center
+    if (x == 1 && y == 1) score += 10;
+
+    return score;
+}
 
 
 
@@ -181,17 +216,39 @@ Player<char>* SUS_UI::create_player(string& name, char symbol, PlayerType type) 
 }
 
 Move<char>* SUS_UI::get_move(Player<char>* player) {
-    int x, y;
-
     if (player->get_type() == PlayerType::HUMAN) {
+        int x, y;
         cout << "\nPlease " << player->get_name() << " enter x and y (0 to 2)\n> ";
         cin >> x >> y;
+        return new Move<char>(x, y, player->get_symbol());
     }
-    else if (player->get_type() == PlayerType::COMPUTER) {
-        x = rand() % player->get_board_ptr()->get_rows();
-        y = rand() % player->get_board_ptr()->get_columns();
+    else { // Smart Computer
+        cout << "\nComputer " << player->get_name() << " is thinking...\n";
+
+        char symbol = player->get_symbol();
+
+        // Get board from player and cast to SUS_Board
+        SUS_Board* board = dynamic_cast<SUS_Board*>(player->get_board_ptr());
+
+        // Get all possible moves
+        auto moves = board->get_valid_moves();
+
+        int best_score = -1000;
+        pair<int, int> best_move = moves[0];
+
+        // Try each possible move and pick the best
+        for (auto& move : moves) {
+            int score = board->get_move_score(move.first, move.second, symbol);
+
+            if (score > best_score) {
+                best_score = score;
+                best_move = move;
+            }
+        }
+
+        cout << player->get_name() << " chooses " << best_move.first << "," << best_move.second << "\n";
+        return new Move<char>(best_move.first, best_move.second, symbol);
     }
-    return new Move<char>(x, y, player->get_symbol());
 }
 
 Player<char>** SUS_UI::setup_players() {

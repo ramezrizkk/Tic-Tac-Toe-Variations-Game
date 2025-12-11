@@ -81,6 +81,12 @@ public:
     /** @brief Get score for a player
     */
     int get_score(char symbol);
+
+    // Returns all empty cells
+    vector<pair<int, int>> get_valid_moves();
+
+    // Simple scoring without full minimax
+    int get_move_score(int x, int y, char symbol);
 };
 
 
