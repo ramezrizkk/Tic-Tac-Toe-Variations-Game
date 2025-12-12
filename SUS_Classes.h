@@ -95,7 +95,7 @@ public:
  * @brief User Interface class for the SUS (Tic-Tac-Toe) game.
  *
  * Inherits from the generic `UI<char>` base class and provides
- * SUS–specific functionality for player setup and move input.
+ * SUSâ€“specific functionality for player setup and move input.
  *
  * @see UI
  */
@@ -135,7 +135,7 @@ public:
      */
     Player<char>** setup_players() override;
 };
-
+//
 #endif // SUS_CLASSES_H
 
 
