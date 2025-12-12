@@ -473,5 +473,5 @@ public:
         }
     }
 };
-
+//
 #endif // GEM_TICTACTOE_DEF
