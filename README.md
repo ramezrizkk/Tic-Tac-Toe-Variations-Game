@@ -29,7 +29,7 @@ The framework is closed for modification but open for extension.
 
 The project is built around a generic framework containing the following core components:
 
-🔹 Board<T> (Abstract)
+#### 🔹 Board<T> (Abstract)
 
 Represents the game board.
 Responsible for:
@@ -42,7 +42,7 @@ Checking win/draw/lose conditions
 
 Each game variation inherits from this class and implements its own rules.
 
-🔹 Player<T>
+#### 🔹 Player<T>
 
 Represents a player (Human or Computer).
 Stores:
@@ -57,7 +57,7 @@ Reference to board
 
 Custom AI players extend this class.
 
-🔹 Move<T>
+#### 🔹 Move<T>
 
 Encapsulates a single move:
 
@@ -65,7 +65,7 @@ Position (x, y)
 
 Symbol or value placed
 
-🔹 UI<T> (Abstract)
+#### 🔹 UI<T> (Abstract)
 
 Handles:
 
@@ -77,7 +77,7 @@ Showing game messages
 
 Each game provides its own UI implementation.
 
-🔹 GameManager<T>
+#### 🔹 GameManager<T>
 
 Controls:
 
@@ -92,7 +92,7 @@ Board updates
 This class remains unchanged and can run any game built on the framework.
 
 ## 🎮 Implemented Game Variations
-🧍 Individual Games
+#### 🧍 Individual Games
 
 SUS
 
@@ -110,7 +110,7 @@ Diamond Tic Tac Toe
 
 Pyramid Tic Tac Toe
 
-👥 Group Games
+#### 👥 Group Games
 
 Numerical Tic Tac Toe
 
@@ -126,16 +126,16 @@ Memory Tic Tac Toe
 
 This project demonstrates the four core OOP principles:
 
-Encapsulation
+#### Encapsulation
 Board state and logic are protected inside classes.
 
-Abstraction
+#### Abstraction
 Abstract base classes (Board, UI) define interfaces.
 
-Inheritance
+#### Inheritance
 Each game extends the base framework.
 
-Polymorphism
+#### Polymorphism
 GameManager interacts with games through base class pointers.
 
 ## 📚 Documentation
@@ -144,7 +144,6 @@ API documentation was generated using Doxygen.
 The HTML documentation is available inside the /docs directory.
 
 ## 🎥 Demo
-https://drive.google.com/file/d/1zqwxcmRrkVnIJGcJ4BTx25DI7mrxSYQR/view
 A demonstration video showcasing selected games is available here:
+https://drive.google.com/file/d/1zqwxcmRrkVnIJGcJ4BTx25DI7mrxSYQR/view
 
-[Insert YouTube Link]
