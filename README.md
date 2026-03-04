@@ -92,35 +92,32 @@ Board updates
 This class remains unchanged and can run any game built on the framework.
 
 ## 🎮 Implemented Game Variations
-#### 🧍 Individual Games
 
-SUS
+- SUS
 
-Four-in-a-row
+- Four-in-a-row
 
-5×5 Tic Tac Toe
+- 5×5 Tic Tac Toe
 
-Word Tic Tac Toe
+- Word Tic Tac Toe
 
-Misère Tic Tac Toe
+- Misère Tic Tac Toe
 
-Diamond Tic Tac Toe
+- Diamond Tic Tac Toe
 
-4×4 Moving Tic Tac Toe
+- 4×4 Moving Tic Tac Toe
 
-Pyramid Tic Tac Toe
+- Pyramid Tic Tac Toe
 
-#### 👥 Group Games
+- Numerical Tic Tac Toe
 
-Numerical Tic Tac Toe
+- Obstacles Tic Tac Toe
 
-Obstacles Tic Tac Toe
+- Infinity Tic Tac Toe
 
-Infinity Tic Tac Toe
+- Ultimate Tic Tac Toe
 
-Ultimate Tic Tac Toe
-
-Memory Tic Tac Toe
+- Memory Tic Tac Toe
 
 ## 🧠 OOP Principles Applied
 
