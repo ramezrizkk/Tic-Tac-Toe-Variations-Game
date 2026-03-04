@@ -138,11 +138,6 @@ Each game extends the base framework.
 #### Polymorphism
 GameManager interacts with games through base class pointers.
 
-## 📚 Documentation
-
-API documentation was generated using Doxygen.
-The HTML documentation is available inside the /docs directory.
-
 ## 🎥 Demo
 A demonstration video showcasing selected games is available here (in arabic):
 https://drive.google.com/file/d/1zqwxcmRrkVnIJGcJ4BTx25DI7mrxSYQR/view
